@@ -8,7 +8,7 @@
 
 <!-- !!!!! -->
 <!--    change this to refer to your specific page  -->
-    <title>Work index!</title>
+    <title>Interface Design</title>
 
 <!-- !!!!! -->
 <!--  change this to your preferred icon  -->
@@ -26,7 +26,7 @@
     <header>
 <!-- !!!!! -->
 <!--    change this to your preferred online name  -->
-        <h1>Interface Design and Development Work</h1>
+        <h1>Shared Sound Space</h1>
     </header>
 
     <div class="mainNavContainer">
@@ -38,14 +38,224 @@
 
         <main>
             <section id="intro-section">
-                <p> My name is Hao Mei, I'm a sceond year RMIT student, the main reason that brought me to Digital media is because I'm interested in UI and UX design.
-                    <aside></aside>
-                    <br>I don't have a personal favourit emoji, I will just use what ever that fits this situation, or memes.
-                    <br>I have had two coding class last semester in RMIT, so I'm kinda familiar with HTML, CSS and JavaScript coding.
-                    <br>I love linsten to music, but I don't have musical knowledge and sound design experience.
+                <h2>Project Synopsis</h2>
+                <p> Shared Sound Space is a browser-based cooperative synthesizer designed for two people to create sound together using the same computer. Instead of giving both players the same controls, the instrument divides the interaction into two complementary roles.
                 </p>
+                <br>
+                <p>Player 02 plays notes using a piano-style keyboard, while Player 01 shapes the shared sound through spatial input, waveform selection and volume control. Both players contribute to the same instrument, making collaboration part of the main interaction rather than an additional feature.</p>            
+                <br>
+                <p>The project is designed for people with little or no musical experience. It uses direct interaction, clear visual grouping and immediate audio and visual feedback to make experimenting with sound more approachable.</p>
+                <br>
+                
+                <h2>Chosen Design Scenario: Multiplayer Synthesizer</h2>
+                <h4>My interpretation of the scenario:</h4>
+                <br>
+                <p>My project responds to a situation where two people want to experiment with making music together without needing previous musical knowledge or experience with professional audio software. They need a simple instrument that allows both people to participate, understand their own roles and discover how their actions affect the sound. The design focuses on making collaboration approachable through a shared sound system and two clearly defined interaction roles.</p>
+                <br>
+                <h4>My respond to the design scenario:</h4>
+                <br>
+                <p>Shared Sound Space responds to this scenario by dividing the interface into two player areas while keeping both areas connected to one instrument.</p>
+                <br>
+                <p>Player 02 controls the notes through a compact piano-style keyboard. Player 01 controls the sound through spatial input, waveform selection and volume adjustment. This division allows one person to decide which notes are played while the other changes their sound character.</p>
+                <br>
+                <p>The interface uses a clear left-and-right layout on wider screens to make the two roles easy to recognise. On narrower screens, the player areas stack vertically while keeping their visual identities and control groups separate.</p>
+                <br>
+                <p>The project avoids complex music-production workflows and uses direct manipulation, short labels and visible control states to help beginners start experimenting. The main design goal is to make collaboration understandable through the layout and interaction itself, rather than relying on long instructions or additional features.</p>
+            </section>
+
+            <br>
+
+            <section id="design-documentation">
+                <h2>Core Interaction Feature and Design System Documnetation</h2>
+                <br>
+                <h3>Core interaction:</h3>
+                <h3>Piano-Style Keyboard</h3>
+                <p>The keyboard belongs to Player 02 and controls which notes are played. It contains eight white keys covering C4 to C5, with five black keys for the sharps between them. <br>Users can play notes by clicking or holding the on-screen keys, or by using the computer keyboard. The white keys use A, S, D, F, G, H, J and K. The black keys use W, E, T, Y and U.</p><br>
+                <p>The mapping follows the familiar pattern of white and black piano keys. Computer-key labels are displayed directly on the on-screen keyboard, so users do not need to remember a separate key chart. The black-key labels are smaller to keep them visible without competing with the main keyboard.</p><br>
+                <p>When a key is pressed, it receives a visual highlight and triggers its corresponding note. Releasing the key releases the note and removes the highlight. This connects the user's action with both visual and audio feedback.</p><br>
+                <p>The keyboard provides a familiar and direct way to select notes without requiring users to understand music notation or learn a complicated interface first.</p><br><br>
+
+                <h3>Spatial input</h3>
+                <p>Spatial input is Player 01's main way to shape the shared sound. Users move a control point within a two-dimensional area, and its horizontal and vertical positions change different sound parameters.</p><br>
+                <p>Horizontal movement changes the low-pass filter's cutoff frequency. Moving to the left produces a darker sound, while moving to the right allows more high-frequency content through, producing a brighter sound.</p><br>
+                <p>Vertical movement changes filter resonance. Moving upward increases resonance, while moving downward produces a smoother sound. The interface displays the current sound description, filter frequency and resonance value, allowing users to connect their movement with the resulting sound.</p><br>
+                <p>The control uses pointer interaction, so users can operate it with a mouse or compatible touch or pen input. The control point can also be moved with the arrow keys when it is focused. Holding Shift allows larger movements.</p><br>
+                <p>The position is stored as normalised values between 0 and 1, rather than fixed screen coordinates. This keeps the sound mapping consistent when the spatial area changes size across responsive layouts.</p><br>
+                <p>Spatial input was chosen as the project's extended technique because it allows users to shape sound through movement instead of relying only on traditional synthesizer controls. It creates a more physical and exploratory way to interact with audio.</p><br><br>
+                
+                <h3>Waveform Selection</h3>
+                <p>Player 01 can switch between four waveforms: Sine, Square, Triangle and Saw. Each waveform creates a different sound
+                    character, allowing both players to experiment with the notes being played.
+                    <br><br>
+                    I kept this control simple so users can explore different
+                    sounds without needing to understand complex synthesizer
+                    settings. The selected waveform is also highlighted to
+                    provide clear visual feedback.
+                </p><br><br>
+
+                <h3>Volume Control</h3>
+                <p>Player 01 can adjust the overall volume using a simple
+                    slider. The current volume level is displayed next to
+                    the control.
+                <br><br>
+                    Keeping volume within the same player area makes the
+                    interface easier to understand and keeps related sound
+                    controls together. This also gives users a quick way
+                    to adjust the shared instrument's output.
+                </p><br><br>
+
+                <h3>Shared Audio Output</h3>
+                <p>Both players contribute to the same audio output.
+                    Player 02 selects and plays notes using the keyboard,
+                    while Player 01 changes their sound through spatial
+                    input and waveform selection.
+                    <br><br>
+                    The keyboard sound passes through a shared filter,
+                    volume control, compressor and limiter before reaching
+                    the audio output. This connects both players' actions
+                    as part of one instrument rather than two separate
+                    sound sources.
+                </p> <br><br>   
+                
+                <h3>Extended Technique: Spatial Input</h3>
+                <p>Spatial input is the main extended technique used in
+                    this project. Player 01 moves a control point within
+                    a two-dimensional area to change the sound in real time.
+                    <br><br>
+                    Horizontal movement controls filter brightness, while
+                    vertical movement changes resonance. The interface
+                    also displays the current parameter values and sound
+                    descriptions, helping users understand how their
+                    movements affect the audio.
+                    <br><br>
+                    I chose this technique because it provides a more
+                    direct and playful way to shape sound. Instead of
+                    relying only on traditional sliders, users can explore
+                    sound through physical movement and experiment together
+                    with the player controlling the notes.
+                </p><br><br>
+                
+                <h3>Design System:</h3>
+                <h3>Layout and Player Roles</h3>
+                <p>The interface is divided into two main areas.
+                    Player 02's keyboard is placed on one side, while
+                    Player 01's spatial input, waveform and volume controls
+                    are grouped on the other side.
+                    <br><br>
+                    Both areas sit inside the same instrument layout,
+                    showing that they belong to one shared system while
+                    keeping each player's responsibilities clear. This
+                    layout was developed in response to user feedback,
+                    which showed that a left-and-right arrangement made
+                    the two roles easier to recognise.
+                </p><br><br>
+
+                <h3>Colour and Typography</h3>
+                <p> The interface uses a dark background to keep attention
+                    on the main controls. Amber is used to identify Player
+                    02, while mint green identifies Player 01. These accent
+                    colours help distinguish the two roles without adding
+                    too much text.
+                    <br><br>
+                    Clear headings and short labels create a simple
+                    information hierarchy. Technical values are kept
+                    secondary so beginners can focus on the main
+                    interactions first.
+                </p><br><br>
+
+                <h3>Components and Visual Feedback</h3>
+                <p>The interface uses consistent styles for player panels,
+                    buttons, sliders, waveform options, spatial controls
+                    and piano keys. Interactive elements change their
+                    appearance when selected, pressed or moved.
+                    <br><br>
+                    These visual states help users understand their actions
+                    immediately. The piano keys highlight when played,
+                    while the spatial control displays its current position
+                    and sound values.
+                </p><br><br>
+
+                <h3>Responsive and Adaptive Layout</h3>
+
+                <p> The layout adapts to different screen widths using
+                    CSS media queries. On wider screens, the two player
+                    areas appear side by side. On narrower screens, they
+                    stack vertically to give each area enough space.
+                    <br><br>
+                    The design covers four main screen ranges: Medium
+                    (below 840px), Expanded (840-1199px), Large
+                    (1200-1600px) and Extra-large (above 1600px).
+                    The keyboard and spatial controls also adjust their
+                    dimensions to remain usable across different screens.
+                    <br><br>
+                    The aim is to keep the two player roles visually
+                    separate while maintaining the same interaction
+                    logic across different screen sizes.
+                </p><br><br>
+
+                <h3>Accessibility and Interaction States</h3>
+                <p>The interface uses visible focus states, clear control
+                    labels and keyboard interactions to support different
+                    ways of using the instrument. Reduced-motion preferences
+                    are also considered to avoid unnecessary animation.
+                    <br><br>
+                    Short instructions and immediate visual feedback help
+                    users understand the controls without needing to read
+                    long explanations. These choices support a more
+                    approachable experience for people with little or no
+                    musical experience.
+                </p><br><br>
+            </section>
+            
+            <section id=final-project>
+                <a href="https://haomei423.github.io/interfaceAssignment3/">Shared Sound Space</a>
+            </section>
+            
+            <section id="commit-logs">
+                <details>
+                <summary>Commit Logs</summary>
+
+                <table>
+
+                    <thead>
+                    <tr>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Subject</th>
+                        <th>Body</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>HaoMEI423</td>
+                        <td>Wed Sep 23 15:04:27 2026 +1000</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>HaoMEI423</td>
+                        <td>Sat Sep 26 22:50:08 2026 +1000</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>HaoMEI423</td>
+                        <td>Sun Sep 27 23:25:22 2026 +1000</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+                </details>
             </section>
         </main>
+
+
 
         <!-- this is an empty element which helps with spacing -->
         <aside></aside>
