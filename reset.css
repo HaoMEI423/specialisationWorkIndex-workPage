@@ -30,5 +30,8 @@ picture,
 svg,
 video {
     display: block;
+    width: 600px;
     max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
 }
